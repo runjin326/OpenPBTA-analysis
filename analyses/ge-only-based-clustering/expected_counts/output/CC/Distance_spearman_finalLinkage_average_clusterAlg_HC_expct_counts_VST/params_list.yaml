@@ -1,0 +1,10 @@
+cohort_id: initial_hgat
+patient_id_column: Kids_First_Biospecimen_ID
+cohort_label_file: initial_hgat_histology.tsv
+includes_progressive: ~
+distance: spearman
+innerLinkage: average
+finalLinkage: average
+clusterAlg: hc
+output_folder: output/CC/Distance_spearman_finalLinkage_average_clusterAlg_HC_expct_counts_VST
+

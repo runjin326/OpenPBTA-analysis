@@ -1,0 +1,50 @@
+H3.status:
+   'H3.1 K28' : '#766080'
+   'H3.3 K28' : '#8510b5'
+   'H3.3 G35' : '#dacce3'
+   'H3 wildtype' : '#F5B7B1'
+   'Not reported' : '#B8EEE3'
+
+TP53alteration_status:
+   'Yes' : '#2662a3'
+   'No' : '#bbbfc4'
+   'Not reported' :  '#B8EEE3'
+
+integrated_diagnosis:
+   'High-grade glioma': '#17A589'
+   'Diffuse midline glioma': '#F6DDCC'
+   'Brainstem glioma- Diffuse intrinsic pontine glioma': '#F6DDCC'
+   'Not Provided in Base File': 'grey88'
+
+glioma_brain_region:
+   'hemispheric': '#272de6'
+   'midline': '#93def5'
+   'other': '#16c9a3'
+   'mixed': '#0e661e'
+   'NA': '#B8EEE3'
+
+CNS_region:
+  'Hemispheric': '#272de6'
+  'Midline': '#93def5'
+  'Other': '#16c9a3'
+  'Posterior fossa': 'seagreen'
+  'Spine': 'cyan'
+  'Ventricles': 'blueviolet'
+
+cohort:
+   'CBTTC': 'cyan'
+   'PNOC003': 'coral'
+   'PNOC008': 'firebrick'
+
+Overall Survival:
+   'Alive': '#D6D64A'
+   'Deceased': '#4848D0'
+
+PCA_HCPC:
+   1 : 'lightyellow'
+   2 : 'khaki'
+   3 : 'khaki4'
+CC:
+   '1' : 'plum'
+   '2' : 'purple'
+   '3' : 'blue'

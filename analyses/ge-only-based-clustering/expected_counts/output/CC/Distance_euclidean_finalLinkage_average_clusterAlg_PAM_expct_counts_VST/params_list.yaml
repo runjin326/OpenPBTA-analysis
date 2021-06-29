@@ -1,0 +1,10 @@
+cohort_id: initial_hgat
+patient_id_column: Kids_First_Biospecimen_ID
+cohort_label_file: initial_hgat_histology.tsv
+includes_progressive: ~
+distance: euclidean
+innerLinkage: average
+finalLinkage: average
+clusterAlg: pam
+output_folder: output/CC/Distance_euclidean_finalLinkage_average_clusterAlg_PAM_expct_counts_VST
+
