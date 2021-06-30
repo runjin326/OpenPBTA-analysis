@@ -1,7 +1,7 @@
 suppressPackageStartupMessages(library("optparse"))
-suppressPackageStartupMessages(library(tidyverse))
-suppressPackageStartupMessages(library(readr))
-suppressPackageStartupMessages(library(broom))
+suppressPackageStartupMessages(library("tidyverse"))
+suppressPackageStartupMessages(library("readr"))
+suppressPackageStartupMessages(library("broom"))
 suppressPackageStartupMessages(library(gridExtra))
 suppressPackageStartupMessages(library(grid))
 suppressPackageStartupMessages(library(rlist))
@@ -13,7 +13,6 @@ suppressPackageStartupMessages(library(ComplexHeatmap))
 suppressPackageStartupMessages(library(data.table))
 suppressPackageStartupMessages(library(DESeq2))
 
-
 option_list <- list(
   make_option(c("-r", "--cc_rdata"),
                type = "character", default = NULL,
@@ -22,8 +21,11 @@ option_list <- list(
               type = "character", default = NULL,
               help = "matrix with gene exp data"),
   make_option(c("-f", "--cohort_label_file"),
-              type = "character", default = "../../data/hgat_all_primary_TP53_SNV_CNV_consensus.tsv",
+              type = "character", default = "../../../data/initial_hgat_histology.tsv",
               help = "main manifest for cohort "),
+  make_option(c("-v", "--output_geneexp_tsv"),
+              type = "character", default = "../../../data/initial_hgat-pbta-gene-counts-rsem-expected_count_corrected.proteincoding.tsv",
+              help = "tsv format of the expressin file with desired cohort"),
   make_option(c("-p", "--patient_id_column"),
               type = "character", default = NULL,
               help = "patient id column id "),
@@ -54,22 +56,14 @@ print10kout <- opt$print10kout
 out1 <- paste(outprefix, "samplevssample.png", sep="_")
 out2 <- paste(outprefix, "samplevsfeature.png", sep="_")
 out_cluster_and_annotation <- paste(outprefix, "cluster_and_annotation.tsv", sep="_")
-GeneExp_with_caseid <- gsub(".tsv", "_withcohort_participant_id.tsv", geneexp)
+output_geneexp_tsv <- opt$output_geneexp_tsv
 
-
-
-cohort_plot_labels <- read_tsv(cohort_label_file) %>%
-  as.data.frame()
-
-cohort_annotation_labels <- read_tsv(cohort_label_file) %>%
-  as.data.frame()
+# read in histologies file 
+cohort_plot_labels <- read_tsv(cohort_label_file) 
+cohort_annotation_labels <- read_tsv(cohort_label_file) 
 
 ### The input RNAseq dataset
-GeneExp <- read.table(file = geneexp, sep = '\t', header = TRUE, row.names=1) %>%
-  as.data.frame() %>%
-  dplyr::select(intersect(colnames(.), cohort_plot_labels$Kids_First_Biospecimen_ID))
-
-
+GeneExp <- readRDS(geneexp)
 
 # read CC ckustering groups
 load(cc_rdata)
@@ -93,26 +87,15 @@ cluster<-as.data.frame(CC_group) %>%
   rownames_to_column() %>%
   # merge the annotation per cohort_participant_id
   dplyr::left_join(cohort_annotation_labels,by=c("rowname"= patient_id_column)) %>%
-  dplyr::select("rowname", "CC", "integrated_diagnosis", "CNS_region",
-    "TP53alteration_status", "H3.status", "integrated_diagnosis") %>%
+  dplyr::select("rowname", "CC", "integrated_diagnosis", "CNS_region") %>%
   unique() %>%
   remove_rownames() %>%
   column_to_rownames("rowname")
 
 cluster$CC <- as.character(cluster$CC)
 
-### The input RNAseq dataset
-#GeneExp <- readRDS(geneexp) %>%
-#  as.data.frame() %>%
-#  dplyr::select(intersect(colnames(.), cohort_plot_labels$Kids_First_Biospecimen_ID))
-
-
-# rename colnames to Participant ID using pbta-hist
-GeneExp <- GeneExp %>%
-      rename_at(as.vector(na.omit(cohort_plot_labels$Kids_First_Biospecimen_ID[match(names(GeneExp), cohort_plot_labels$Kids_First_Biospecimen_ID)])),
-               ~as.vector(na.omit(cohort_plot_labels$cohort_participant_id[match(names(GeneExp), cohort_plot_labels$Kids_First_Biospecimen_ID)])))
-
-write.table(GeneExp, GeneExp_with_caseid, sep="\t")
+# the column name of the expression data is already Kids_First_Biospecimen_ID - no need to change anything - just write it out
+write.table(GeneExp, output_geneexp_tsv, sep="\t")
 
 #VST  transformation
 GeneExp <- varianceStabilizingTransformation(round(as.matrix(GeneExp)),blind = TRUE,fitType="mean")
@@ -142,7 +125,7 @@ top10k_GeneExpzscored <- GeneExp[varorder, ] %>% head(10000)
 
 
 if (print10kout ==  "YES")
-  GeneExp_top10k <- gsub(".tsv", "_withcohort_participant_id_top10k.tsv", geneexp)
+  GeneExp_top10k <- gsub(".rds", "_top10k.tsv", geneexp)
   write.table(top10k_GeneExpzscored, GeneExp_top10k, sep="\t")
 
 

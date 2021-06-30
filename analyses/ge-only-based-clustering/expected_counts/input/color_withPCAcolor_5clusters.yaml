@@ -1,0 +1,24 @@
+
+integrated_diagnosis:
+   'High-grade glioma/astrocytoma, H3 wildtype': '#17A589'
+   'High-grade glioma/astrocytoma, H3 G35-mutant': '#F6DDCC'
+   'Diffuse midline glioma, H3 K28-mutant': '#F5B7B1'
+   'High-grade glioma/astrocytoma, IDH-mutant': 'yellow'
+   'NA': '#B8EEE3'
+
+
+CNS_region:
+  'Hemispheric': '#272de6'
+  'Midline': '#93def5'
+  'Other': '#16c9a3'
+  'Posterior fossa': 'seagreen'
+  'Spine': 'cyan'
+  'Ventricles': 'blueviolet'
+  'Mixed': '#0e661e'
+
+CC:
+   '1' : 'plum'
+   '2' : 'purple'
+   '3' : 'blue'
+   '4' : 'cyan'
+   '5' : 'green'

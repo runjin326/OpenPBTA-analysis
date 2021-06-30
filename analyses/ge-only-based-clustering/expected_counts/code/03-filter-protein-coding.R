@@ -31,3 +31,4 @@ gencode_gtf <- gencode_gtf %>%
 input <- readRDS(input)
 input_pc <- input[rownames(input) %in% gencode_gtf$gene_name,]
 saveRDS(input_pc, file = output)
+

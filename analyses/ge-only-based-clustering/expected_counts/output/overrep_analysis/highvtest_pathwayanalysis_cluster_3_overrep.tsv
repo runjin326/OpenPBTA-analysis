@@ -1,0 +1,78 @@
+"Description"	"qvalue"
+"Extracellular matrix organization"	8.60702507745671e-19
+"Collagen formation"	1.31025918006606e-13
+"Resolution of Sister Chromatid Cohesion"	4.74403553564849e-13
+"Degradation of the extracellular matrix"	5.61564763813358e-12
+"Assembly of collagen fibrils and other multimeric structures"	3.98591600278431e-11
+"Mitotic Prometaphase"	1.38657518698439e-10
+"RHO GTPases Activate Formins"	1.45100563165112e-10
+"Amplification of signal from the kinetochores"	1.45100563165112e-10
+"Amplification  of signal from unattached  kinetochores via a MAD2  inhibitory signal"	1.45100563165112e-10
+"Cell Cycle Checkpoints"	1.96763169321169e-10
+"Mitotic Spindle Checkpoint"	3.496929940682e-10
+"Collagen degradation"	5.08452572976327e-10
+"Collagen biosynthesis and modifying enzymes"	1.05070983009418e-09
+"Mitotic Anaphase"	2.1127757261139e-09
+"Mitotic Metaphase and Anaphase"	2.22337787477445e-09
+"Separation of Sister Chromatids"	2.6111076168287e-09
+"Crosslinking of collagen fibrils"	4.58587159666858e-08
+"Integrin cell surface interactions"	3.3208359436027e-07
+"Elastic fibre formation"	3.65719119584819e-07
+"M Phase"	4.33973456564179e-07
+"RHO GTPase Effectors"	5.16109975313263e-07
+"Collagen chain trimerization"	2.7201829916349e-06
+"G1/S-Specific Transcription"	3.62204216032042e-06
+"Formation of the cornified envelope"	3.81007749245121e-06
+"Non-integrin membrane-ECM interactions"	7.18959200876665e-06
+"Polo-like kinase mediated events"	7.18959200876665e-06
+"Signaling by Rho GTPases"	1.13642599344669e-05
+"Cyclin A/B1/B2 associated events during G2/M transition"	1.57973570142109e-05
+"Keratinization"	3.05467581167833e-05
+"Molecules associated with elastic fibres"	4.93323227593177e-05
+"Laminin interactions"	6.70848464795311e-05
+"ECM proteoglycans"	9.56487214866036e-05
+"Condensation of Prometaphase Chromosomes"	0.000250855778311014
+"Kinesins"	0.00029446249725929
+"Mitotic G2-G2/M phases"	0.00121017467587403
+"Activation of Matrix Metalloproteinases"	0.00121017467587403
+"COPI-dependent Golgi-to-ER retrograde traffic"	0.00127150505669983
+"Anchoring fibril formation"	0.00127318212360662
+"Signaling by PDGF"	0.00139509626657532
+"APC/C-mediated degradation of cell cycle proteins"	0.00139509626657532
+"Regulation of mitotic cell cycle"	0.00139509626657532
+"Defective B3GALTL causes Peters-plus syndrome (PpS)"	0.00218848005114179
+"TP53 Regulates Transcription of Cell Cycle Genes"	0.00218848005114179
+"G0 and Early G1"	0.00243719939489765
+"Syndecan interactions"	0.00243719939489765
+"O-glycosylation of TSR domain-containing proteins"	0.00243719939489765
+"G2/M Transition"	0.00255260078540727
+"MET promotes cell motility"	0.00383069963564671
+"Diseases associated with O-glycosylation of proteins"	0.00391183048243806
+"MET activates PTK2 signaling"	0.00410889887343833
+"NCAM1 interactions"	0.00420897546887029
+"APC/C:Cdc20 mediated degradation of mitotic proteins"	0.00771696354541319
+"Regulation of Insulin-like Growth Factor (IGF) transport and uptake by Insulin-like Growth Factor Binding Proteins (IGFBPs)"	0.00802896349369485
+"Activation of APC/C and APC/C:Cdc20 mediated degradation of mitotic proteins"	0.00819608014399152
+"Mitotic G1-G1/S phases"	0.0114790190902473
+"G1/S Transition"	0.0114790190902473
+"APC-Cdc20 mediated degradation of Nek2A"	0.0114790190902473
+"Activation of ATR in response to replication stress"	0.0114790190902473
+"YAP1- and WWTR1 (TAZ)-stimulated gene expression"	0.0115693106598547
+"Golgi-to-ER retrograde transport"	0.0122884733536927
+"Transcription of E2F targets under negative control by p107 (RBL1) and p130 (RBL2) in complex with HDAC1"	0.0145455063131096
+"Smooth Muscle Contraction"	0.016353797866419
+"Diseases of glycosylation"	0.0217895635609486
+"TP53 Regulates Transcription of Genes Involved in G2 Cell Cycle Arrest"	0.0221557444438897
+"Deposition of new CENPA-containing nucleosomes at the centromere"	0.0237885917417131
+"Nucleosome assembly"	0.0237885917417131
+"Signaling by Receptor Tyrosine Kinases"	0.0252570133697605
+"G2/M Checkpoints"	0.0275386822287265
+"O-linked glycosylation"	0.0291411955615682
+"Inhibition of the proteolytic activity of APC/C required for the onset of anaphase by mitotic spindle checkpoint components"	0.0296423911293935
+"Inactivation of APC/C via direct inhibition of the APC/C complex"	0.0296423911293935
+"RHO GTPases activate CIT"	0.0296423911293935
+"Resolution of D-loop Structures through Holliday Junction Intermediates"	0.0325930368515636
+"NCAM signaling for neurite out-growth"	0.0334770172151955
+"Resolution of D-Loop Structures"	0.0362334499791034
+"CDC6 association with the ORC:origin complex"	0.0372935382440816
+"E2F mediated regulation of DNA replication"	0.0397862184471215

@@ -5,6 +5,7 @@
 # 4. Print out only feature  name and q-value in the output
 
 suppressPackageStartupMessages(library(broom))
+#BiocManager::install("ReactomePA")
 library(matrixStats)
 library(tidyr)
 library(readr)
@@ -40,7 +41,7 @@ k <- seq(1, opt$clust, 1)
   # use enrichpathway to get overrepresented features
 for (n in k) {
   vtest_highscores_cluster = subset(vtest, cluster==n)
-  geneset = vtest_highscores_cluster[['feature']]
+  geneset = as.character(vtest_highscores_cluster[['feature']])
   geneentrezids <- as.numeric(mapIds(org.Hs.eg.db, geneset, 'ENTREZID', 'SYMBOL'))
   enrichOUT <- enrichPathway(gene=geneentrezids, organism = "human", pvalueCutoff = 0.05, readable = T)
   enrichOUT = as.data.frame(enrichOUT)[c("Description","qvalue")]
