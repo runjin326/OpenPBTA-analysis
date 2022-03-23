@@ -117,3 +117,18 @@ Subependymal Giant Cell Astrocytoma, wildtype	Subependymal Giant Cell Astrocytom
 Subependymal Giant Cell Astrocytoma	Subependymal Giant Cell Astrocytoma	No	No
 Teratoma	Teratoma	No	No
 Non-germinomatous germ cell tumor;Teratoma	Teratoma	No	Yes
+Dysplasia/Gliosis	NA	No	Yes
+Benign tumor, osteoblastoma	NA	Yes	Yes
+Benign tumor, cortical tubers	NA	Yes	Yes
+Benign tumor, epidermoid cyst	NA	Yes	Yes
+Benign tumor, meningioangiomatosis	NA	Yes	Yes
+Benign tumor, hamartoma	NA	Yes	Yes
+Benign tumor, dermoid cyst	NA	Yes	Yes
+Benign tumor, ossifying fibroma	NA	Yes	Yes
+Benign tumor, prolactinoma	NA	Yes	Yes
+Benign tumor, dermoid inclusion cyst	NA	Yes	Yes
+Benign tumor, inclusion cyst	NA	Yes	Yes
+Benign tumor, perineuroma	NA	Yes	Yes
+Benign tumor, rathke cleft cyst	NA	Yes	Yes
+Benign tumor, fibroma	NA	Yes	Yes
+Benign tumor, atypical lymphoid infiltrate	NA	Yes	Yes

@@ -206,16 +206,20 @@ histology<- histology %>%
 #### Write out table for `harmonized_diagnosis` -> `cancer_group` mapping
 
 To make it easy for people to examine the mapping between these two fields, we'll write out a table to `results/`.
-We'll only include a subset of the mappings in the README (those that we think require the most explanation).
+We'll only include a subset of the mappings in the README (those that we think require the most explanation), so we'll save a separate table for that purpose.
 
 ```{r}
-# We print out this table in order to have a table of the mappings between the 
-# harmonized dx and cancer group
-histology %>% 
+# We'll save this table in order to have a table of the mappings between the 
+# harmonized dx and cancer group. It will include additional columns that 
+# explain whether or not the subtype is stripped and whether not additional 
+# modifications beyond that have been performed.
+mapping_table <- histology %>% 
+  # Consider removing this sample? -- seems to be a special case, see chunk above
+  # dplyr::filter(sample_id != "7316-2577") %>%
   dplyr::select(harmonized_diagnosis, 
                 cancer_group) %>%
   dplyr::distinct() %>%
-  tidyr::drop_na() %>%
+  dplyr::filter(!is.na(harmonized_diagnosis)) %>%
   # This next step removes the subtypes from harmonized diagnosis
   dplyr::mutate(cancer_group_pre_mod = str_extract(harmonized_diagnosis, 
                                                    "[^,]*")) %>%
@@ -230,11 +234,26 @@ histology %>%
   dplyr::mutate(additional_modification = case_when(
     cancer_group_pre_mod == cancer_group ~ "No",
     TRUE ~ "Yes"
-  )) %>% 
-  # Drop column for comparison
+  )) %>%
+  dplyr::arrange(cancer_group)
+
+# Write the whole table out for examination
+mapping_table %>%
+  # This column will mostly be used in the README (our next step) -- will drop
+  # it here to avoid confusion
   dplyr::select(-cancer_group_pre_mod) %>%
-  dplyr::arrange(cancer_group) %>%
   readr::write_tsv("results/harmonized_diagnosis_cancer_group_table.tsv")
+
+# Now specifically for the README, we'll want to display instances when 
+# additional modifications are made. We use the `cancer_group_pre_mod` column
+# because including the subtypes would muddy the picture in the README.
+mapping_table %>%
+  dplyr::filter(additional_modification == "Yes") %>%
+  dplyr::select(stripped_subtype = cancer_group_pre_mod,
+                cancer_group) %>%
+  dplyr::distinct() %>%
+  dplyr::arrange(stripped_subtype) %>%
+  readr::write_tsv("results/cancer_group_table_for_README.tsv ")
 ```
 
 
@@ -285,3 +304,10 @@ histology %>%
   arrange(Kids_First_Biospecimen_ID) %>%
   write_tsv("results/pbta-histologies.tsv")
 ```
+
+### Session Info
+
+```{r}
+sessionInfo()
+```
+
